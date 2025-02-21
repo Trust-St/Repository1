@@ -7,11 +7,14 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     private float movingspeed = 5f;
-    private Vector2 motionvector, mousedirect, mousevector;
-    Rigidbody2D rigidbody2d;
+    private Vector2 mousedirect, mousevector;
+    private Vector2 motionvector;
+    public Rigidbody2D rigidbody2d;
     public float clickdist = 100f;
     public Camera mainCamera;
     bool mousemove;
+    public bool moving;
+    public Vector2 lastmotionvector;
 
     // Start is called before the first frame update
     void Start()
@@ -24,30 +27,38 @@ public class Controller : MonoBehaviour
     private void Update()
     {
         motionvector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        mousedirect = mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        float horizontal = Input.GetAxisRaw("Horizontal");//x
+        float vertical = Input.GetAxisRaw("Vertical");//y
+        
+        /*mousedirect = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousevector = new Vector2(mousedirect.x, mousedirect.y);
 
 
-        if (Input.GetMouseButtonDown(0))
+       *//* if (Input.GetMouseButtonDown(0))
         {
-            /*mousemove = true;
+            *//*mousemove = true;
             print("click");
             print(mousevector);
             if (mousemove == true){
                 if(transform.position=)
-            }*/
-            moveonclick();
+            }*//*
+        moveonclick();
+    }*/
+
+        if (horizontal != 0 || vertical != 0 )
+        {
+            lastmotionvector = new Vector2(horizontal, vertical).normalized;
         }
         if (Input.GetKey(KeyCode.LeftShift))
         {
             movingspeed = 8f;
             move();
-        }
+}
         else
-        {
-            movingspeed = 5f;
-            move();
-        }
+{
+    movingspeed = 5f;
+    move();
+}
     }
         
      void move()
@@ -55,10 +66,10 @@ public class Controller : MonoBehaviour
         rigidbody2d.velocity = motionvector.normalized * movingspeed;
         motionvector = rigidbody2d.velocity;
     } 
-    void moveonclick()
+    /*void moveonclick()
     {
         rigidbody2d.velocity = Vector2.MoveTowards(rigidbody2d.velocity, mousevector, 2f * Time.deltaTime);
         print("OK");
         transform.position = rigidbody2d.velocity;
-    }
+    }*/
 }
