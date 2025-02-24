@@ -6,15 +6,12 @@ public class HitObj : ToolsHit
 {
     private SpriteRenderer spriteRenderer;
 
-    void start()
+    void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
     public override void Hit()
     {
-        if (spriteRenderer != null)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
