@@ -151,8 +151,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 897996653}
+  m_Children: []
   m_Father: {fileID: 1069323826}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &113368687
@@ -931,11 +930,11 @@ Transform:
   m_GameObject: {fileID: 897996652}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.0947, y: 0.3736, z: 0}
+  m_LocalPosition: {x: -11.116452, y: 8.719253, z: 0}
   m_LocalScale: {x: 0.6305, y: 0.6544, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8989440}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &897996654
 SpriteRenderer:
@@ -1003,6 +1002,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   pickupzone: 1.5
+  ttl: 10
   hoverCursor: {fileID: 0}
 --- !u!1 &922215993
 GameObject:
@@ -1450,6 +1450,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a04b75b42d72c50488345c10d56a1b55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropCount: 5
+  Pickupdrops: {fileID: 897996652}
+  spread: 7
 --- !u!1 &1775096572
 GameObject:
   m_ObjectHideFlags: 3
@@ -1676,3 +1679,4 @@ SceneRoots:
   - {fileID: 922215994}
   - {fileID: 1440605384}
   - {fileID: 360382040}
+  - {fileID: 897996653}
